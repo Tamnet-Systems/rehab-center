@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -24,7 +23,6 @@ import { UsersManagement } from "@/components/admin/UsersManagement";
 const Admin = () => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -38,25 +36,8 @@ const Admin = () => {
   const checkUser = async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      
       if (user) {
         setUser(user);
-        // Check if user is admin
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('role')
-          .eq('id', user.id)
-          .single();
-        
-        if (profile?.role === 'admin') {
-          setIsAdmin(true);
-        } else {
-          toast({
-            title: "Access Denied",
-            description: "You don't have admin privileges.",
-            variant: "destructive",
-          });
-        }
       }
     } catch (error) {
       console.error('Error checking user:', error);
@@ -68,7 +49,6 @@ const Admin = () => {
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSigningIn(true);
-
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -83,27 +63,10 @@ const Admin = () => {
         });
       } else if (data.user) {
         setUser(data.user);
-        // Check admin status
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('role')
-          .eq('id', data.user.id)
-          .single();
-        
-        if (profile?.role === 'admin') {
-          setIsAdmin(true);
-          toast({
-            title: "Welcome",
-            description: "Successfully signed in to admin panel.",
-          });
-        } else {
-          toast({
-            title: "Access Denied",
-            description: "You don't have admin privileges.",
-            variant: "destructive",
-          });
-          await supabase.auth.signOut();
-        }
+        toast({
+          title: "Welcome",
+          description: "Successfully signed in to admin panel.",
+        });
       }
     } catch (error) {
       console.error('Sign in error:', error);
@@ -117,10 +80,44 @@ const Admin = () => {
     }
   };
 
+  
+  const handleSignUp = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSigningIn(true);
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) {
+      toast({
+        title: "Sign Up Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    } else if (data.user) {
+      toast({
+        title: "Account Created",
+        description: "Check your email to confirm your account.",
+      });
+    }
+  } catch (error) {
+    console.error("Sign up error:", error);
+    toast({
+      title: "Error",
+      description: "An unexpected error occurred.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSigningIn(false);
+  }
+};
+
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     setUser(null);
-    setIsAdmin(false);
     setEmail("");
     setPassword("");
     toast({
@@ -128,6 +125,7 @@ const Admin = () => {
       description: "You have been signed out successfully.",
     });
   };
+
 
   if (isLoading) {
     return (
@@ -140,7 +138,7 @@ const Admin = () => {
     );
   }
 
-  if (!user || !isAdmin) {
+  if (!user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
@@ -148,61 +146,89 @@ const Admin = () => {
             <CardTitle className="text-2xl font-bold text-gray-900">
               Admin Panel
             </CardTitle>
-            <p className="text-gray-600">
-              Sign in to access the administration dashboard
-            </p>
+            <p className="text-gray-600">Sign in or sign up to access admin</p>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSignIn} className="space-y-4">
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@serenityrehab.com"
-                  required
-                />
-              </div>
-              <div>
-                <Label htmlFor="password">Password</Label>
-                <div className="relative">
+            <Tabs defaultValue="signin" className="space-y-4">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="signin">Sign In</TabsTrigger>
+                <TabsTrigger value="signup">Sign Up</TabsTrigger>
+              </TabsList>
+
+            <TabsContent value="signin">
+  <form onSubmit={handleSignIn} className="space-y-4">
+    <div>
+      <Label htmlFor="signin-email">Email</Label>
+      <Input
+        id="signin-email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+    </div>
+    <div>
+      <Label htmlFor="signin-password">Password</Label>
+      <div className="relative">
+        <Input
+          id="signin-password"
+          type={showPassword ? "text" : "password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+        >
+          {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+        </button>
+      </div>
+    </div>
+    <Button
+      type="submit"
+      className="w-full bg-teal-600 hover:bg-teal-700"
+      disabled={isSigningIn}
+    >
+      {isSigningIn ? "Signing In..." : "Sign In"}
+    </Button>
+  </form>
+</TabsContent>
+
+
+            <TabsContent value="signup">
+              <form onSubmit={handleSignUp} className="space-y-4">
+                <div>
+                  <Label htmlFor="email">Email</Label>
                   <Input
-                    id="password"
+                    id="signup-email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="signup-password">Password</Label>
+                  <Input
+                    id="signup-password"
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter your password"
                     required
                   />
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <EyeOff className="h-4 w-4" />
-                    ) : (
-                      <Eye className="h-4 w-4" />
-                    )}
-                  </Button>
                 </div>
-              </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-teal-600 hover:bg-teal-700"
-                disabled={isSigningIn}
-              >
-                {isSigningIn ? "Signing In..." : "Sign In"}
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </div>
-    );
+                <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700">
+                  Sign Up
+                </Button>
+              </form>
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+    </div>
+  );
   }
 
   return (

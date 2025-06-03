@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -275,7 +274,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Map Section Placeholder */}
+        {/* Map Section */}
         <div className="mt-16">
           <Card>
             <CardHeader>
@@ -285,12 +284,18 @@ const Contact = () => {
               </p>
             </CardHeader>
             <CardContent>
-              <div className="bg-gray-100 h-64 rounded-lg flex items-center justify-center">
-                <p className="text-gray-500">
-                  Interactive map will be displayed here
-                  <br />
-                  <span className="text-sm">(Integration pending)</span>
-                </p>
+              <div className="bg-gray-100 h-64 rounded-lg flex items-center justify-center p-0 overflow-hidden">
+                <iframe
+                  title="RAM Hospital Kisii Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.33807396413!2d34.767956!3d-0.681736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1829b5e2e2e2e2e3%3A0x7e7e7e7e7e7e7e7e!2sRAM%20Hospital%20Kisii!5e0!3m2!1sen!2ske!4v1680000000000!5m2!1sen!2ske"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-64 rounded-lg border-0"
+                ></iframe>
               </div>
             </CardContent>
           </Card>

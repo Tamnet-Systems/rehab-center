@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +13,7 @@ import Bookings from "./pages/Bookings";
 import Testimonials from "./pages/Testimonials";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import EmailVerified from "@/pages/EmailVerified"; // ✅ Ensure correct import path
 
 const queryClient = new QueryClient();
 
@@ -34,6 +34,7 @@ const App = () => (
               <Route path="/bookings" element={<Bookings />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/EmailVerified" element={<EmailVerified />} /> {/* ✅ Add this */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

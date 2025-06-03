@@ -11,7 +11,7 @@ export const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Heart className="h-8 w-8 text-teal-400" />
-              <span className="text-xl font-bold">Serenity Rehab</span>
+              <span className="text-xl font-bold">Rehab Center</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               Providing compassionate, evidence-based addiction treatment and mental health services 
@@ -19,7 +19,7 @@ export const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <Mail className="h-5 w-5 text-teal-400" />
-              <span className="text-gray-300">info@serenityrehab.com</span>
+              <span className="text-gray-300">info@rehabcenter.com</span>
             </div>
           </div>
 
@@ -50,7 +50,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Serenity Rehab Center. All rights reserved.</p>
+          <p>&copy; 2025  Rehab Center. All rights reserved.</p>
           <p className="mt-2 text-sm">
             If you are experiencing a medical emergency, please call 911 immediately.
           </p>

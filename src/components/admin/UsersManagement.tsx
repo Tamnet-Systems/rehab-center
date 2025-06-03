@@ -1,12 +1,31 @@
-
+// UsersManagement.tsx
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Search, Eye, User, Shield } from "lucide-react";
@@ -37,12 +56,12 @@ export const UsersManagement = () => {
   const fetchUsers = async () => {
     try {
       const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .from("profiles")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (error) {
-        console.error('Error fetching users:', error);
+        console.error("Error fetching users:", error);
         toast({
           title: "Error",
           description: "Failed to fetch users.",
@@ -52,7 +71,7 @@ export const UsersManagement = () => {
         setUsers(data || []);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     } finally {
       setIsLoading(false);
     }
@@ -64,12 +83,12 @@ export const UsersManagement = () => {
     setIsUpdating(true);
     try {
       const { error } = await supabase
-        .from('profiles')
+        .from("profiles")
         .update({ role: newRole })
-        .eq('id', selectedUser.id);
+        .eq("id", selectedUser.id);
 
       if (error) {
-        console.error('Error updating user role:', error);
+        console.error("Error updating user role:", error);
         toast({
           title: "Error",
           description: "Failed to update user role.",
@@ -85,24 +104,28 @@ export const UsersManagement = () => {
         setNewRole("");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     } finally {
       setIsUpdating(false);
     }
   };
 
-  const filteredUsers = users.filter(user => {
-    const matchesSearch = (user.full_name?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
-                         (user.email?.toLowerCase() || '').includes(searchTerm.toLowerCase());
+  const filteredUsers = users.filter((user) => {
+    const matchesSearch =
+      (user.full_name?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+      (user.email?.toLowerCase() || "").includes(searchTerm.toLowerCase());
     const matchesRole = roleFilter === "all" || user.role === roleFilter;
     return matchesSearch && matchesRole;
   });
 
   const getRoleColor = (role: string) => {
     switch (role) {
-      case 'admin': return 'bg-red-100 text-red-800';
-      case 'user': return 'bg-blue-100 text-blue-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case "admin":
+        return "bg-red-100 text-red-800";
+      case "user":
+        return "bg-blue-100 text-blue-800";
+      default:
+        return "bg-gray-100 text-gray-800";
     }
   };
 
@@ -178,21 +201,23 @@ export const UsersManagement = () => {
               {filteredUsers.map((user) => (
                 <TableRow key={user.id}>
                   <TableCell className="font-medium">
-                    {user.full_name || 'No name provided'}
+                    {user.full_name || "No name provided"}
                   </TableCell>
-                  <TableCell>{user.email || 'No email provided'}</TableCell>
+                  <TableCell>{user.email || "No email provided"}</TableCell>
                   <TableCell>
-                    <Badge className={getRoleColor(user.role)}>
-                      {user.role === 'admin' ? <Shield className="h-3 w-3 mr-1" /> : <User className="h-3 w-3 mr-1" />}
-                      {user.role}
-                    </Badge>
+                    <span>
+                      <Badge className={getRoleColor(user.role)}>
+                        {user.role === "admin" ? (
+                          <Shield className="h-3 w-3 mr-1" />
+                        ) : (
+                          <User className="h-3 w-3 mr-1" />
+                        )}
+                        {user.role}
+                      </Badge>
+                    </span>
                   </TableCell>
-                  <TableCell>
-                    {new Date(user.created_at).toLocaleDateString()}
-                  </TableCell>
-                  <TableCell>
-                    {new Date(user.updated_at).toLocaleDateString()}
-                  </TableCell>
+                  <TableCell>{new Date(user.created_at).toLocaleDateString()}</TableCell>
+                  <TableCell>{new Date(user.updated_at).toLocaleDateString()}</TableCell>
                   <TableCell>
                     <Dialog>
                       <DialogTrigger asChild>
@@ -208,7 +233,7 @@ export const UsersManagement = () => {
                           Manage
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-md">
+                      <DialogContent aria-describedby={undefined} className="max-w-md">
                         <DialogHeader>
                           <DialogTitle>Manage User</DialogTitle>
                         </DialogHeader>
@@ -216,22 +241,26 @@ export const UsersManagement = () => {
                           <div className="space-y-4">
                             <div>
                               <label className="text-sm font-medium">Name</label>
-                              <p>{selectedUser.full_name || 'No name provided'}</p>
+                              <span>{selectedUser.full_name || "No name provided"}</span>
                             </div>
-                            
+
                             <div>
                               <label className="text-sm font-medium">Email</label>
-                              <p>{selectedUser.email || 'No email provided'}</p>
+                              <span>{selectedUser.email || "No email provided"}</span>
                             </div>
 
                             <div>
                               <label className="text-sm font-medium">Current Role</label>
-                              <p>
+                              <span>
                                 <Badge className={getRoleColor(selectedUser.role)}>
-                                  {selectedUser.role === 'admin' ? <Shield className="h-3 w-3 mr-1" /> : <User className="h-3 w-3 mr-1" />}
+                                  {selectedUser.role === "admin" ? (
+                                    <Shield className="h-3 w-3 mr-1" />
+                                  ) : (
+                                    <User className="h-3 w-3 mr-1" />
+                                  )}
                                   {selectedUser.role}
                                 </Badge>
-                              </p>
+                              </span>
                             </div>
 
                             <div>

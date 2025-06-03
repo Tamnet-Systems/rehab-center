@@ -1,0 +1,149 @@
+-- Users table (main authentication)
+CREATE TABLE public.app_users (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  email text NOT NULL,
+  created_at timestamp with time zone NULL DEFAULT now(),
+  CONSTRAINT users_pkey PRIMARY KEY (id),
+  CONSTRAINT users_email_key UNIQUE (email)
+) TABLESPACE pg_default;
+
+-- User profiles (extended user information)
+CREATE TABLE public.profiles (
+  id uuid NOT NULL,
+  email text NULL,
+  full_name text NULL,
+  role text NULL DEFAULT 'user'::text,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT profiles_pkey PRIMARY KEY (id),
+  CONSTRAINT profiles_id_fkey FOREIGN KEY (id) REFERENCES auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT profiles_role_check CHECK ((role = ANY (ARRAY['user'::text, 'admin'::text])))
+) TABLESPACE pg_default;
+
+CREATE TRIGGER update_profiles_updated_at BEFORE
+UPDATE ON profiles FOR EACH ROW
+EXECUTE FUNCTION update_updated_at_column();
+
+-- Contact inquiries from users/visitors
+CREATE TABLE public.inquiries (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  name text NOT NULL,
+  email text NOT NULL,
+  phone text NULL,
+  subject text NULL,
+  message text NOT NULL,
+  urgency text NULL,
+  status text NULL DEFAULT 'new'::text,
+  admin_response text NULL,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT inquiries_pkey PRIMARY KEY (id),
+  CONSTRAINT inquiries_status_check CHECK (
+    (status = ANY (
+      ARRAY[
+        'new'::text,
+        'in_progress'::text,
+        'resolved'::text,
+        'closed'::text
+      ]
+    ))
+  )
+) TABLESPACE pg_default;
+
+CREATE TRIGGER update_inquiries_updated_at BEFORE
+UPDATE ON inquiries FOR EACH ROW
+EXECUTE FUNCTION update_updated_at_column();
+
+-- Simple bookings system
+CREATE TABLE public.bookings (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  user_id uuid NULL,
+  session_date date NULL,
+  status text NULL DEFAULT 'pending'::text,
+  created_at timestamp with time zone NULL DEFAULT now(),
+  CONSTRAINT bookings_pkey PRIMARY KEY (id),
+  CONSTRAINT bookings_user_id_fkey FOREIGN KEY (user_id) REFERENCES app_users (id)
+) TABLESPACE pg_default;
+
+-- Detailed session booking system
+CREATE TABLE public.session_bookings (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  user_id uuid NULL,
+  name text NOT NULL,
+  email text NOT NULL,
+  phone text NULL,
+  session_type text NOT NULL,
+  preferred_date date NULL,
+  preferred_time text NULL,
+  notes text NULL,
+  status text NULL DEFAULT 'pending'::text,
+  admin_notes text NULL,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT session_bookings_pkey PRIMARY KEY (id),
+  CONSTRAINT session_bookings_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT session_bookings_status_check CHECK (
+    (status = ANY (
+      ARRAY[
+        'pending'::text,
+        'confirmed'::text,
+        'cancelled'::text,
+        'completed'::text
+      ]
+    ))
+  )
+) TABLESPACE pg_default;
+
+CREATE TRIGGER update_session_bookings_updated_at BEFORE
+UPDATE ON session_bookings FOR EACH ROW
+EXECUTE FUNCTION update_updated_at_column();
+
+-- Dashboard statistics view
+CREATE VIEW public.dashboard_stats AS
+SELECT
+  (
+    SELECT
+      COUNT(*) AS count
+    FROM
+      inquiries
+    WHERE
+      inquiries.created_at > (now() - '30 days'::interval)
+  ) AS inquiries_last_30_days,
+  (
+    SELECT
+      COUNT(*) AS count
+    FROM
+      inquiries
+    WHERE
+      inquiries.status = 'pending'::text
+  ) AS new_inquiries,
+  (
+    SELECT
+      COUNT(*) AS count
+    FROM
+      bookings
+    WHERE
+      bookings.created_at > (now() - '30 days'::interval)
+  ) AS bookings_last_30_days,
+  (
+    SELECT
+      COUNT(*) AS count
+    FROM
+      bookings
+    WHERE
+      bookings.status = 'pending'::text
+  ) AS pending_bookings,
+  (
+    SELECT
+      COUNT(*) AS count
+    FROM
+      auth.users
+    WHERE
+      users.created_at > (now() - '30 days'::interval)
+  ) AS new_users_last_30_days,
+  (
+    SELECT
+      COUNT(*) AS count
+    FROM
+      auth.users
+  ) AS total_users;
