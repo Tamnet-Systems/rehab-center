@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -174,7 +173,7 @@ const Bookings = () => {
                       required
                       value={formData.phone}
                       onChange={(e) => handleChange("phone", e.target.value)}
-                      placeholder="(555) 123-4567"
+                      placeholder="+254 700 000 000" // Example format
                     />
                   </div>
                   <div>
@@ -342,14 +341,14 @@ const Bookings = () => {
                 <p className="text-blue-800 text-sm">
                   <strong>Important:</strong> If you are experiencing a medical emergency or having thoughts of 
                   self-harm, please call 911 or go to your nearest emergency room immediately. For crisis support, 
-                  call our 24/7 helpline at (555) 123-HELP.
+                  call our 24/7 helpline at +254714683334 or +25439430053.
                 </p>
               </div>
 
               <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full bg-teal-600 hover:bg-teal-700"
+                className="w-full bg-brand-brightred hover:bg-brand-darkblue text-white transition-all hover:scale-105"
                 disabled={!formData.consent}
               >
                 Schedule My Assessment

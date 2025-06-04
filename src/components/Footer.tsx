@@ -1,4 +1,3 @@
-
 import { Heart, Mail, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -11,15 +10,14 @@ export const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Heart className="h-8 w-8 text-teal-400" />
-              <span className="text-xl font-bold">Rehab Center</span>
+              <span className="text-xl font-bold">Salmo Rehabilitation Center</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Providing compassionate, evidence-based addiction treatment and mental health services 
-              to help individuals and families heal and recover.
+              Providing compassionate, evidence-based addiction treatment and mental health services in Kisii, Kenya. Our mission is to help individuals and families heal and recover with dignity and professionalism.
             </p>
             <div className="flex space-x-4">
               <Mail className="h-5 w-5 text-teal-400" />
-              <span className="text-gray-300">info@rehabcenter.com</span>
+              <span className="text-gray-300">salmocenter@gmail.com</span>
             </div>
           </div>
 
@@ -38,21 +36,21 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-300">
-              <p>123 Recovery Lane</p>
-              <p>Healing City, HC 12345</p>
+              <p>Salmo Rehabilitation Center, Mosocho</p>
+              <p>Kisii, Kenya</p>
               <p className="flex items-center">
                 <Calendar className="h-4 w-4 mr-2 text-teal-400" />
                 24/7 Crisis Support
               </p>
-              <p className="font-semibold text-white">(555) 123-HELP</p>
+              <p className="font-semibold text-white">+254 714 638 334s</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025  Rehab Center. All rights reserved.</p>
+          <p>&copy; 2025 Salmo Rehabilitation Center. All rights reserved.</p>
           <p className="mt-2 text-sm">
-            If you are experiencing a medical emergency, please call 911 immediately.
+            If you are experiencing a medical emergency, please call +254 714 683 334 immediately.
           </p>
         </div>
       </div>

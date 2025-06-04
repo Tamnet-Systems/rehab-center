@@ -1,50 +1,106 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Heart, Users, Calendar, Clock } from "lucide-react";
 
 const Services = () => {
+  // Updated programs/services
   const programs = [
     {
-      title: "Inpatient Treatment",
-      duration: "30-90 days",
-      description: "24/7 medically supervised care in a safe, supportive environment.",
+      title: "Psychological/Psychiatric Services",
+      duration: "Ongoing",
+      description: "Comprehensive mental health assessments, counseling, and psychiatric care for individuals and families.",
       features: [
-        "Medical detoxification",
-        "Individual therapy sessions",
-        "Group counseling",
-        "Family therapy",
+        "Mental health assessments",
+        "Psychiatric evaluation",
         "Medication management",
-        "Recreational therapy"
+        "Individual counseling",
+        "Crisis intervention"
       ],
       icon: Heart
     },
     {
-      title: "Intensive Outpatient (IOP)",
-      duration: "3-6 months",
-      description: "Structured treatment while maintaining work and family responsibilities.",
+      title: "Drugs & Alcohol Rehabilitation / Drug Test",
+      duration: "Varies",
+      description: "Evidence-based rehabilitation programs, substance use screening, and ongoing support for recovery.",
       features: [
-        "9 hours of therapy per week",
-        "Evening and weekend options",
-        "Individual and group sessions",
-        "Relapse prevention training",
-        "Life skills development",
-        "Family support groups"
+        "Medical detoxification",
+        "Drug and alcohol testing",
+        "Relapse prevention",
+        "Aftercare planning",
+        "Support groups"
       ],
       icon: Calendar
     },
     {
-      title: "Outpatient Counseling",
+      title: "Couples Therapy",
       duration: "Ongoing",
-      description: "Flexible therapy sessions tailored to your schedule and needs.",
+      description: "Therapeutic support for couples to rebuild trust, improve communication, and heal together.",
       features: [
-        "Individual therapy",
-        "Couples counseling",
-        "Family therapy",
-        "Psychiatric services",
-        "Medication management",
-        "Crisis intervention"
+        "Relationship counseling",
+        "Conflict resolution",
+        "Communication skills",
+        "Joint goal setting"
+      ],
+      icon: Users
+    },
+    {
+      title: "Family Therapy",
+      duration: "Ongoing",
+      description: "Guided sessions to strengthen family relationships and foster a supportive recovery environment.",
+      features: [
+        "Family counseling",
+        "Education and support",
+        "Family dynamics assessment",
+        "Coping strategies"
+      ],
+      icon: Users
+    },
+    {
+      title: "Individual Therapy",
+      duration: "Ongoing",
+      description: "Personalized one-on-one therapy to address unique challenges and promote lasting change.",
+      features: [
+        "Personalized treatment plans",
+        "Cognitive behavioral therapy (CBT)",
+        "Motivational interviewing",
+        "Trauma-informed care"
+      ],
+      icon: Users
+    },
+    {
+      title: "Adolescence Therapy",
+      duration: "Ongoing",
+      description: "Specialized therapy for adolescents facing substance use or mental health challenges.",
+      features: [
+        "Youth counseling",
+        "Peer support groups",
+        "Family involvement",
+        "School collaboration"
+      ],
+      icon: Users
+    },
+    {
+      title: "Detoxification",
+      duration: "Short-term",
+      description: "Medically supervised detox programs to ensure safe withdrawal and stabilization.",
+      features: [
+        "Medical monitoring",
+        "Withdrawal management",
+        "24/7 nursing care",
+        "Transition to further treatment"
+      ],
+      icon: Heart
+    },
+    {
+      title: "Group Therapy",
+      duration: "Ongoing",
+      description: "Peer-supported group sessions to share experiences, build community, and encourage growth.",
+      features: [
+        "Support groups",
+        "Skill-building workshops",
+        "Peer encouragement",
+        "Topic-focused sessions"
       ],
       icon: Users
     }
@@ -80,22 +136,12 @@ const Services = () => {
   return (
     <div className="min-h-screen py-12">
       {/* Header */}
-      <section className="bg-gradient-to-br from-teal-50 to-blue-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Treatment Programs
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We offer a full continuum of care with evidence-based treatments 
-            tailored to meet your unique needs and circumstances.
-          </p>
-        </div>
-      </section>
-
-      {/* Treatment Programs */}
-      <section className="py-16">
+      <section className="bg-gradient-to-br from-brand-skyblue/10 to-brand-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <h1 className="text-4xl md:text-6xl font-bold text-brand-darkblue mb-8">
+            Our Services
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program, index) => (
               <Card key={index} className="h-full hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
@@ -119,6 +165,11 @@ const Services = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button className="bg-brand-brightred hover:bg-brand-darkblue text-white px-8 py-4 text-lg transition-all hover:scale-105">
+              <Link to="/bookings">Book a Session</Link>
+            </Button>
           </div>
         </div>
       </section>

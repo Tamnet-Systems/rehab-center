@@ -1,25 +1,50 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, Shield, Users, ArrowRight, Star, Phone, Calendar, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
+  // Update website name and services
   const services = [
     {
       icon: Heart,
-      title: "Inpatient Treatment",
-      description: "24/7 medical supervision and comprehensive care in a safe, supportive environment designed for healing."
+      title: "Psychological/Psychiatric Services",
+      description: "Comprehensive mental health assessments, counseling, and psychiatric care for individuals and families."
     },
     {
       icon: Shield,
-      title: "Outpatient Programs",
-      description: "Flexible treatment options that allow you to maintain work and family commitments while receiving care."
+      title: "Drugs & Alcohol Rehabilitation / Drug Test",
+      description: "Evidence-based rehabilitation programs, substance use screening, and ongoing support for recovery."
     },
     {
       icon: Users,
-      title: "Family Support",
-      description: "Healing extends beyond the individual. We provide support and education for families on the recovery journey."
+      title: "Couples Therapy",
+      description: "Therapeutic support for couples to rebuild trust, improve communication, and heal together."
+    },
+    {
+      icon: Users,
+      title: "Family Therapy",
+      description: "Guided sessions to strengthen family relationships and foster a supportive recovery environment."
+    },
+    {
+      icon: Users,
+      title: "Individual Therapy",
+      description: "Personalized one-on-one therapy to address unique challenges and promote lasting change."
+    },
+    {
+      icon: Users,
+      title: "Adolescence Therapy",
+      description: "Specialized therapy for adolescents facing substance use or mental health challenges."
+    },
+    {
+      icon: Shield,
+      title: "Detoxification",
+      description: "Medically supervised detox programs to ensure safe withdrawal and stabilization."
+    },
+    {
+      icon: Users,
+      title: "Group Therapy",
+      description: "Peer-supported group sessions to share experiences, build community, and encourage growth."
     }
   ];
 
@@ -32,24 +57,31 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-teal-50 to-white py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-100/30 to-transparent"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-brand-skyblue/10 to-brand-white py-20 lg:py-32 overflow-hidden">
+        {/* Doctor celebrating background image */}
+        <img
+          src="/public/re.jpg"
+          alt="Obsession and recovery"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
+          style={{ zIndex: 0 }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyblue/30 to-transparent" style={{ zIndex: 1 }}></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ zIndex: 2 }}>
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-teal-600">Your Journey</span>
+              <span className="text-brand-darkblue">Your Journey</span>
               <br />
-              <span className="text-gray-900">to Recovery Begins Here</span>
+              <span className="text-brand-brightred">to Recovery Begins Here</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              At Serenity Rehab, we believe every person deserves compassionate care, hope, and a chance to heal. 
+            <p className="text-xl md:text-2xl text-brand-darkblue/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+              At Salmo center, we believe every person deserves compassionate care, hope, and a chance to heal. 
               Our evidence-based treatments create a sanctuary where transformation becomes possible.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 text-lg transition-all hover:scale-105"
+                className="bg-brand-brightred hover:bg-brand-darkblue text-white px-8 py-4 text-lg transition-all hover:scale-105"
               >
                 <Link to="/bookings">Begin Your Recovery Journey</Link>
               </Button>
@@ -57,7 +89,7 @@ const Index = () => {
                 asChild 
                 variant="outline" 
                 size="lg" 
-                className="border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white px-8 py-4 text-lg transition-all hover:scale-105"
+                className="border-brand-darkblue text-brand-darkblue hover:bg-brand-darkblue hover:text-white px-8 py-4 text-lg transition-all hover:scale-105"
               >
                 <Link to="/contact">Speak With Our Team</Link>
               </Button>
@@ -67,16 +99,16 @@ const Index = () => {
       </section>
 
       {/* Statistics */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-brand-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <Card className="hover:shadow-lg transition-shadow border-teal-100">
+                <Card className="hover:shadow-lg transition-shadow border-brand-skyblue/30">
                   <CardContent className="p-8">
-                    <stat.icon className="h-12 w-12 text-teal-600 mx-auto mb-4" />
-                    <div className="text-4xl font-bold text-teal-600 mb-2">{stat.number}</div>
-                    <div className="text-gray-600 font-medium">{stat.label}</div>
+                    <stat.icon className="h-12 w-12 text-brand-darkblue mx-auto mb-4" />
+                    <div className="text-4xl font-bold text-brand-darkblue mb-2">{stat.number}</div>
+                    <div className="text-brand-darkblue/80 font-medium">{stat.label}</div>
                   </CardContent>
                 </Card>
               </div>
@@ -86,29 +118,28 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gradient-to-br from-teal-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-brand-skyblue/10 to-brand-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <span className="text-teal-600">Comprehensive Care</span>
+              <span className="text-brand-darkblue">Our Services</span>
               <br />
-              <span className="text-gray-900">Tailored to Your Needs</span>
+              <span className="text-brand-brightred">at Salmo Rehabilitation Center</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every individual's path to recovery is unique. Our comprehensive programs are designed 
-              to support both body and mind, providing the foundation for lasting transformation.
+            <p className="text-xl text-brand-darkblue/80 max-w-3xl mx-auto">
+              We offer a wide range of specialized services to support your journey to wellness and recovery. Our team is dedicated to providing compassionate, evidence-based care for individuals, couples, and families.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 border-teal-100">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 border-brand-skyblue/30">
                 <CardHeader className="text-center pb-4">
-                  <service.icon className="h-16 w-16 text-teal-600 mx-auto mb-4" />
-                  <CardTitle className="text-2xl text-gray-900">{service.title}</CardTitle>
+                  <service.icon className="h-16 w-16 text-brand-darkblue mx-auto mb-4" />
+                  <CardTitle className="text-2xl text-brand-darkblue">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-600 text-center text-lg leading-relaxed">
+                  <CardDescription className="text-brand-darkblue/80 text-center text-lg leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardContent>
@@ -121,7 +152,7 @@ const Index = () => {
               asChild 
               size="lg" 
               variant="outline"
-              className="border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white transition-all hover:scale-105 px-8 py-4"
+              className="border-brand-brightred text-brand-brightred hover:bg-brand-brightred hover:text-white transition-all hover:scale-105 px-8 py-4"
             >
               <Link to="/services">
                 Explore All Our Programs
@@ -133,15 +164,15 @@ const Index = () => {
       </section>
 
       {/* Success Stories Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-brand-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <span className="text-teal-600">Stories of Hope</span>
+              <span className="text-brand-darkblue">Stories of Hope</span>
               <br />
-              <span className="text-gray-900">& Transformation</span>
+              <span className="text-brand-brightred">& Transformation</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-brand-darkblue/80 max-w-3xl mx-auto mb-8">
               Real stories from brave individuals who found their way back to themselves. 
               Each journey is a testament to the power of healing and human resilience.
             </p>
@@ -150,34 +181,34 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
               {
-                name: "Sarah M.",
-                text: "Serenity gave me back my life and my family. The compassionate care here made all the difference in my recovery journey.",
+                name: "vincent zedekiah.",
+                text: "Salmo gave me back my life and my family. The compassionate care here made all the difference in my recovery journey.",
                 duration: "18 months sober"
               },
               {
-                name: "Michael R.",
+                name: "Michae Juma",
                 text: "The supportive environment and understanding staff created a safe space where I could finally heal and grow.",
                 duration: "2 years sober"
               },
               {
-                name: "Jennifer L.",
+                name: "Jennifer igunza",
                 text: "This place doesn't just treat addiction - it treats the whole person. I found myself again here.",
                 duration: "14 months sober"
               }
             ].map((story, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow border-teal-100">
+              <Card key={index} className="hover:shadow-lg transition-shadow border-brand-skyblue/30">
                 <CardContent className="p-8">
                   <div className="flex mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <blockquote className="text-gray-700 mb-6 italic text-lg">
+                  <blockquote className="text-brand-darkblue mb-6 italic text-lg">
                     "{story.text}"
                   </blockquote>
-                  <div className="border-t border-teal-100 pt-4">
-                    <p className="font-semibold text-gray-900">{story.name}</p>
-                    <div className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium inline-block mt-2">
+                  <div className="border-t border-brand-skyblue/30 pt-4">
+                    <p className="font-semibold text-brand-darkblue">{story.name}</p>
+                    <div className="bg-brand-skyblue/20 text-brand-darkblue px-3 py-1 rounded-full text-sm font-medium inline-block mt-2">
                       {story.duration}
                     </div>
                   </div>
@@ -190,7 +221,7 @@ const Index = () => {
             <Button 
               asChild 
               size="lg"
-              className="bg-teal-600 hover:bg-teal-700 text-white transition-all hover:scale-105 px-8 py-4 text-lg"
+              className="bg-brand-brightred hover:bg-brand-darkblue text-white transition-all hover:scale-105 px-8 py-4 text-lg"
             >
               <Link to="/testimonials">
                 Read More Success Stories
@@ -202,7 +233,7 @@ const Index = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-teal-600 to-teal-700">
+      <section className="py-20 bg-gradient-to-r from-brand-darkblue to-brand-skyblue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Your Recovery Journey Starts Today
@@ -215,7 +246,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             <div className="flex items-center text-white">
               <Phone className="h-6 w-6 mr-3" />
-              <span className="text-lg font-semibold">(555) 123-HOPE</span>
+              <span className="text-lg font-semibold">+254 714 638 334</span>
             </div>
             <div className="flex items-center text-white">
               <Calendar className="h-6 w-6 mr-3" />
@@ -223,7 +254,7 @@ const Index = () => {
             </div>
             <div className="flex items-center text-white">
               <MapPin className="h-6 w-6 mr-3" />
-              <span className="text-lg">Healing City, HC</span>
+              <span className="text-lg">mosocho Kisii</span>
             </div>
           </div>
 
@@ -232,7 +263,7 @@ const Index = () => {
               asChild 
               size="lg" 
               variant="secondary" 
-              className="text-teal-700 hover:bg-white/90 transition-all hover:scale-105 px-8 py-4 text-lg"
+              className="text-brand-darkblue hover:bg-white/90 transition-all hover:scale-105 px-8 py-4 text-lg"
             >
               <Link to="/bookings">Schedule a Confidential Consultation</Link>
             </Button>
@@ -240,7 +271,7 @@ const Index = () => {
               asChild 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-teal-700 transition-all hover:scale-105 px-8 py-4 text-lg"
+              className="border-white text-white hover:bg-white hover:text-brand-darkblue transition-all hover:scale-105 px-8 py-4 text-lg"
             >
               <Link to="/contact">Get Help Now</Link>
             </Button>

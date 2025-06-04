@@ -73,9 +73,9 @@ const Contact = () => {
   return (
     <div className="min-h-screen py-12">
       {/* Header */}
-      <section className="bg-gradient-to-br from-teal-50 to-blue-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      <section className="bg-gradient-to-br from-brand-skyblue/10 to-brand-white py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-6xl font-bold text-brand-darkblue mb-8">
             Contact Us
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -99,7 +99,7 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-red-700 font-semibold text-lg">(555) 123-HELP</p>
+                  <p className="text-red-700 font-semibold text-lg">+254714683334</p>
                   <p className="text-red-600 text-sm mt-1">24/7 Emergency Line</p>
                   <p className="text-red-600 text-sm mt-2">
                     If you or someone you know is in immediate danger, please call 911.
@@ -118,17 +118,19 @@ const Contact = () => {
                 <CardContent className="space-y-4">
                   <div>
                     <p className="font-medium text-gray-900">Phone</p>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">+254714683334</p>
+                    <p className="text-gray-600">+254739430053</p>
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
-                    <p className="text-gray-600">info@serenityrehab.com</p>
+                    <p className="text-gray-600">domibosi5@gmail.com</p>
+                    <p className="text-gray-600">salmocenter2022@gmail.com</p>
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Address</p>
                     <p className="text-gray-600">
-                      123 Recovery Lane<br />
-                      Healing City, HC 12345
+                      Mosocho, Kisii County<br />
+                      Kenya
                     </p>
                   </div>
                 </CardContent>
@@ -212,7 +214,7 @@ const Contact = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleChange("phone", e.target.value)}
-                        placeholder="(555) 123-4567"
+                        placeholder="+254714683334"
                       />
                     </div>
                     <div>
@@ -263,7 +265,7 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-teal-600 hover:bg-teal-700"
+                    className="w-full bg-brand-brightred hover:bg-brand-darkblue text-white px-8 py-4 text-lg transition-all hover:scale-105 mt-6"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
@@ -286,8 +288,8 @@ const Contact = () => {
             <CardContent>
               <div className="bg-gray-100 h-64 rounded-lg flex items-center justify-center p-0 overflow-hidden">
                 <iframe
-                  title="RAM Hospital Kisii Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.33807396413!2d34.767956!3d-0.681736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1829b5e2e2e2e2e3%3A0x7e7e7e7e7e7e7e7e!2sRAM%20Hospital%20Kisii!5e0!3m2!1sen!2ske!4v1680000000000!5m2!1sen!2ske"
+                  title="salmo center  Mosocho Kisii Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15956.013123456789!2d34.683333!3d-0.683333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1829b5e2e2e2e2e3%3A0x7e7e7e7e7e7e7e7e!2sMosocho%2C%20Kisii%20County!5e0!3m2!1sen!2ske!4v1680000000000!5m2!1sen!2ske"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,51 +6,51 @@ import { Quote, Star, Heart } from "lucide-react";
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Sarah M.",
-      location: "Denver, CO",
+      name: "vincent zedekiah.",
+      location: "Itibonge",
       program: "Inpatient Treatment",
       rating: 5,
-      text: "Serenity Rehab saved my life. The staff was incredibly compassionate and the program gave me the tools I needed to rebuild my relationship with my family. I've been sober for 18 months now and couldn't be happier.",
+      text: "Salmo center saved my life. The staff was incredibly compassionate and the program gave me the tools I needed to rebuild my relationship with my family. I've been sober for 18 months now and couldn't be happier.",
       sobrietyDuration: "18 months sober"
     },
     {
-      name: "Michael R.",
-      location: "Austin, TX",
+      name: "Michael Juma",
+      location: "Kitale, Kenya",
       program: "Intensive Outpatient",
       rating: 5,
       text: "The IOP program allowed me to get treatment while keeping my job. The evening sessions fit perfectly with my schedule, and the group therapy sessions were life-changing. I learned I wasn't alone in this struggle.",
       sobrietyDuration: "2 years sober"
     },
     {
-      name: "Jennifer L.",
-      location: "Phoenix, AZ",
+      name: "Jennifer igunza",
+      location: " nyamira",
       program: "Dual Diagnosis Treatment",
       rating: 5,
-      text: "Struggling with both addiction and depression felt overwhelming until I found Serenity. Their dual diagnosis program addressed both issues simultaneously. I finally understand my triggers and have healthy coping mechanisms.",
+      text: "Struggling with both addiction and depression felt overwhelming until I found Salmo Center. Their dual diagnosis program addressed both issues simultaneously. I finally understand my triggers and have healthy coping mechanisms.",
       sobrietyDuration: "14 months sober"
     },
     {
-      name: "David K.",
-      location: "Seattle, WA",
+      name: "David wamalwa.",
+      location: "manga",
       program: "Family Therapy",
       rating: 5,
-      text: "My son's addiction tore our family apart. The family therapy program at Serenity helped us all heal together. We learned how to support his recovery while taking care of ourselves. Our family is stronger than ever.",
+      text: "My son's addiction tore our family apart. The family therapy program at Salmo Center helped us all heal together. We learned how to support his recovery while taking care of ourselves. Our family is stronger than ever.",
       sobrietyDuration: "Family in recovery"
     },
     {
-      name: "Maria G.",
-      location: "Miami, FL",
+      name: "Maria grace.",
+      location: "mosocho",
       program: "Outpatient Counseling",
       rating: 5,
-      text: "After completing inpatient treatment elsewhere, I continued my recovery journey with Serenity's outpatient program. The ongoing support and accountability have been crucial to maintaining my sobriety.",
+      text: "After completing inpatient treatment elsewhere, I continued my recovery journey with Salmo Center's outpatient program. The ongoing support and accountability have been crucial to maintaining my sobriety.",
       sobrietyDuration: "3 years sober"
     },
     {
-      name: "Robert T.",
-      location: "Chicago, IL",
+      name: "Robert Naliakho.",
+      location: "mosocho",
       program: "Detox & Inpatient",
       rating: 5,
-      text: "I was terrified of detox, but the medical team at Serenity made the process as comfortable as possible. The transition to inpatient treatment was seamless, and I felt supported every step of the way.",
+      text: "I was terrified of detox, but the medical team at Salmo center made the process as comfortable as possible. The transition to inpatient treatment was seamless, and I felt supported every step of the way.",
       sobrietyDuration: "8 months sober"
     }
   ];
@@ -73,7 +72,7 @@ const Testimonials = () => {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Real stories from real people who found hope, healing, and a new beginning 
-            through their journey with Serenity Rehab.
+            through their journey with Salmo Center.
           </p>
         </div>
       </section>
@@ -161,7 +160,7 @@ const Testimonials = () => {
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <blockquote className="text-xl text-gray-700 text-center mb-6 italic">
               "Recovery gave me back my son, my daughter got her father back, and I got my life back. 
-              The ripple effect of healing at Serenity touched our entire family."
+              The ripple effect of healing at Salmo Center touched our entire family."
             </blockquote>
             <div className="text-center">
               <p className="font-semibold text-gray-900">Anonymous Family Member</p>

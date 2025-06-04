@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +23,14 @@ export const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <Heart className="h-8 w-8 text-teal-600" />
-              <span className="text-xl font-bold text-gray-900">Serenity Rehab</span>
+              <img
+                src="/logo-salmo.png"
+                alt="Salmo Center Logo"
+                className="h-10 w-10 object-contain rounded-full bg-white border border-gray-200"
+              />
+              <span className="text-xl font-bold text-gray-900">
+                Salmo Center
+              </span>
             </Link>
           </div>
 

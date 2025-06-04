@@ -1,8 +1,7 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Heart, Users, Calendar, Check } from "lucide-react";
+import { Heart, Check } from "lucide-react";
 
 const About = () => {
   const values = [
@@ -24,33 +23,6 @@ const About = () => {
     }
   ];
 
-  const team = [
-    {
-      name: "Dr. Sarah Mitchell",
-      title: "Medical Director",
-      credentials: "MD, Addiction Medicine",
-      description: "15+ years specializing in addiction medicine and dual diagnosis treatment."
-    },
-    {
-      name: "Michael Rodriguez",
-      title: "Clinical Director",
-      credentials: "LCSW, CSAT",
-      description: "Licensed clinical social worker with expertise in trauma-informed care and group therapy."
-    },
-    {
-      name: "Jennifer Kim",
-      title: "Program Manager",
-      credentials: "LPC, CAC III",
-      description: "Licensed professional counselor specializing in family therapy and relapse prevention."
-    },
-    {
-      name: "David Thompson",
-      title: "Psychiatric Nurse",
-      credentials: "RN, PMHN-BC",
-      description: "Psychiatric mental health nurse with expertise in medication management and crisis intervention."
-    }
-  ];
-
   const accreditations = [
     "Joint Commission Accredited",
     "CARF International Accredited",
@@ -62,38 +34,36 @@ const About = () => {
   return (
     <div className="min-h-screen py-12">
       {/* Header */}
-      <section className="bg-gradient-to-br from-teal-50 to-blue-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              About Serenity Rehab
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              For over a decade, we've been helping individuals and families overcome addiction 
-              and mental health challenges through compassionate, evidence-based treatment.
-            </p>
-          </div>
+      <section className="bg-gradient-to-br from-brand-skyblue/10 to-brand-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-6xl font-bold text-brand-darkblue mb-8">
+            About Us
+          </h1>
+          <p className="text-lg text-brand-darkblue/80 mb-8">
+            {/* ...about text... */}
+          </p>
+          <Button className="bg-brand-brightred hover:bg-brand-darkblue text-white px-8 py-4 text-lg transition-all hover:scale-105">
+            Book a Session
+          </Button>
         </div>
       </section>
 
-      {/* Mission Section */}
+      {/* Mission & Vision Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Our Vision
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                To be a supper center for treatment and counselling of drug and alcohol addicts.
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 mt-10">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                At Serenity Rehab, our mission is to provide comprehensive, compassionate treatment 
-                that addresses the whole person—mind, body, and spirit. We believe that recovery 
-                is possible for everyone, and we're committed to helping our clients build the 
-                foundation for a fulfilling, substance-free life.
-              </p>
               <p className="text-lg text-gray-600 mb-8">
-                Our approach combines evidence-based therapies with personalized care plans, 
-                ensuring that each individual receives the specific support they need to achieve 
-                lasting recovery.
+                To offer the highest quality of therapy services embracing psychological and psychiatry approaches through professionalism.
               </p>
               <Button asChild className="bg-teal-600 hover:bg-teal-700">
                 <Link to="/services">Explore Our Programs</Link>
@@ -119,66 +89,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              These values guide everything we do and shape the culture of healing at Serenity Rehab.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Meet Our Expert Team
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our multidisciplinary team of licensed professionals brings decades of combined 
-              experience in addiction treatment and mental health care.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {team.map((member, index) => (
-              <Card key={index} className="hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Users className="h-8 w-8 text-teal-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
-                      <p className="text-teal-600 font-medium">{member.title}</p>
-                      <p className="text-sm text-gray-500 mb-2">{member.credentials}</p>
-                      <p className="text-gray-600">{member.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
