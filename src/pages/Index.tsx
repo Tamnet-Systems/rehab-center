@@ -60,7 +60,7 @@ const Index = () => {
       <section className="relative bg-gradient-to-br from-brand-skyblue/10 to-brand-white py-20 lg:py-32 overflow-hidden">
         {/* Doctor celebrating background image */}
         <img
-          src="/public/re.jpg"
+          src="/re.jpg"
           alt="Obsession and recovery"
           className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
           style={{ zIndex: 0 }}
