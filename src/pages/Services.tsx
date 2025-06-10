@@ -144,10 +144,10 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program, index) => (
               <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader className="text-center">
+                <CardHeader className="text-centre">
                   <program.icon className="h-12 w-12 text-teal-600 mx-auto mb-4" />
                   <CardTitle className="text-2xl text-gray-900">{program.title}</CardTitle>
-                  <div className="flex items-center justify-center text-teal-600">
+                  <div className="flex items-centre justify-centre text-teal-600">
                     <Clock className="h-4 w-4 mr-2" />
                     <span className="font-medium">{program.duration}</span>
                   </div>
@@ -156,7 +156,7 @@ const Services = () => {
                   <p className="text-gray-600 mb-6">{program.description}</p>
                   <ul className="space-y-2">
                     {program.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700">
+                      <li key={idx} className="flex items-centre text-gray-700">
                         <div className="w-2 h-2 bg-teal-600 rounded-full mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
@@ -166,7 +166,7 @@ const Services = () => {
               </Card>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-centre mt-12">
             <Button className="bg-brand-brightred hover:bg-brand-darkblue text-white px-8 py-4 text-lg transition-all hover:scale-105">
               <Link to="/bookings">Book a Session</Link>
             </Button>
@@ -177,7 +177,7 @@ const Services = () => {
       {/* Specialties */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-centre mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Treatment Specialties
             </h2>
@@ -201,7 +201,7 @@ const Services = () => {
 
       {/* CTA Section */}
       <section className="py-16 bg-teal-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-centre">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Start Your Recovery?
           </h2>
@@ -209,7 +209,7 @@ const Services = () => {
             Contact us today for a free, confidential assessment. Our admissions team 
             will help determine the best treatment program for your needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-centre">
             <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-3">
               <Link to="/bookings">Schedule Assessment</Link>
             </Button>

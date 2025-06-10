@@ -10,7 +10,7 @@ const Testimonials = () => {
       location: "Itibonge",
       program: "Inpatient Treatment",
       rating: 5,
-      text: "Salmo center saved my life. The staff was incredibly compassionate and the program gave me the tools I needed to rebuild my relationship with my family. I've been sober for 18 months now and couldn't be happier.",
+      text: "Salmo centre saved my life. The staff was incredibly compassionate and the program gave me the tools I needed to rebuild my relationship with my family. I've been sober for 18 months now and couldn't be happier.",
       sobrietyDuration: "18 months sober"
     },
     {
@@ -26,7 +26,7 @@ const Testimonials = () => {
       location: " nyamira",
       program: "Dual Diagnosis Treatment",
       rating: 5,
-      text: "Struggling with both addiction and depression felt overwhelming until I found Salmo Center. Their dual diagnosis program addressed both issues simultaneously. I finally understand my triggers and have healthy coping mechanisms.",
+      text: "Struggling with both addiction and depression felt overwhelming until I found Salmo Centre. Their dual diagnosis program addressed both issues simultaneously. I finally understand my triggers and have healthy coping mechanisms.",
       sobrietyDuration: "14 months sober"
     },
     {
@@ -34,7 +34,7 @@ const Testimonials = () => {
       location: "manga",
       program: "Family Therapy",
       rating: 5,
-      text: "My son's addiction tore our family apart. The family therapy program at Salmo Center helped us all heal together. We learned how to support his recovery while taking care of ourselves. Our family is stronger than ever.",
+      text: "My son's addiction tore our family apart. The family therapy program at Salmo Centre helped us all heal together. We learned how to support his recovery while taking care of ourselves. Our family is stronger than ever.",
       sobrietyDuration: "Family in recovery"
     },
     {
@@ -42,7 +42,7 @@ const Testimonials = () => {
       location: "mosocho",
       program: "Outpatient Counseling",
       rating: 5,
-      text: "After completing inpatient treatment elsewhere, I continued my recovery journey with Salmo Center's outpatient program. The ongoing support and accountability have been crucial to maintaining my sobriety.",
+      text: "After completing inpatient treatment elsewhere, I continued my recovery journey with Salmo Centre's outpatient program. The ongoing support and accountability have been crucial to maintaining my sobriety.",
       sobrietyDuration: "3 years sober"
     },
     {
@@ -50,7 +50,7 @@ const Testimonials = () => {
       location: "mosocho",
       program: "Detox & Inpatient",
       rating: 5,
-      text: "I was terrified of detox, but the medical team at Salmo center made the process as comfortable as possible. The transition to inpatient treatment was seamless, and I felt supported every step of the way.",
+      text: "I was terrified of detox, but the medical team at Salmo centre made the process as comfortable as possible. The transition to inpatient treatment was seamless, and I felt supported every step of the way.",
       sobrietyDuration: "8 months sober"
     }
   ];
@@ -66,13 +66,13 @@ const Testimonials = () => {
     <div className="min-h-screen py-12">
       {/* Header */}
       <section className="bg-gradient-to-br from-teal-50 to-blue-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-centre">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Success Stories
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Real stories from real people who found hope, healing, and a new beginning 
-            through their journey with Salmo Center.
+            through their journey with Salmo Centre.
           </p>
         </div>
       </section>
@@ -80,7 +80,7 @@ const Testimonials = () => {
       {/* Statistics */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-centre">
             {stats.map((stat, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                 <div className="text-3xl md:text-4xl font-bold text-teal-600 mb-2">
@@ -96,7 +96,7 @@ const Testimonials = () => {
       {/* Testimonials Grid */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-centre mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Voices of Recovery
             </h2>
@@ -110,7 +110,7 @@ const Testimonials = () => {
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow h-full">
                 <CardContent className="p-6 flex flex-col h-full">
-                  <div className="flex items-center mb-4">
+                  <div className="flex items-centre mb-4">
                     <Quote className="h-8 w-8 text-teal-600 mr-3" />
                     <div className="flex">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -124,7 +124,7 @@ const Testimonials = () => {
                   </blockquote>
                   
                   <div className="border-t pt-4 mt-auto">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-centre justify-between">
                       <div>
                         <p className="font-semibold text-gray-900">{testimonial.name}</p>
                         <p className="text-sm text-gray-600">{testimonial.location}</p>
@@ -147,7 +147,7 @@ const Testimonials = () => {
       {/* Family Impact Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-centre mb-12">
             <Heart className="h-12 w-12 text-teal-600 mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Healing Families, Rebuilding Lives
@@ -160,7 +160,7 @@ const Testimonials = () => {
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <blockquote className="text-xl text-gray-700 text-center mb-6 italic">
               "Recovery gave me back my son, my daughter got her father back, and I got my life back. 
-              The ripple effect of healing at Salmo Center touched our entire family."
+              The ripple effect of healing at Salmo Centre touched our entire family."
             </blockquote>
             <div className="text-center">
               <p className="font-semibold text-gray-900">Anonymous Family Member</p>
@@ -173,7 +173,7 @@ const Testimonials = () => {
       {/* Privacy Notice */}
       <section className="py-12 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-centre">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Privacy & Confidentiality
             </h3>
@@ -188,7 +188,7 @@ const Testimonials = () => {
 
       {/* CTA Section */}
       <section className="py-16 bg-teal-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-centre">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Your Success Story Starts Today
           </h2>
@@ -196,7 +196,7 @@ const Testimonials = () => {
             Join the hundreds of individuals and families who have found hope and healing 
             through our comprehensive treatment programs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-centre">
             <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-3">
               <Link to="/bookings">Begin Your Journey</Link>
             </Button>

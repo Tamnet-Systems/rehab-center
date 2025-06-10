@@ -10,14 +10,14 @@ export const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Heart className="h-8 w-8 text-teal-400" />
-              <span className="text-xl font-bold">Salmo Rehabilitation Center</span>
+              <span className="text-xl font-bold">Salmo Rehabilitation Centre</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               Providing compassionate, evidence-based addiction treatment and mental health services in Kisii, Kenya. Our mission is to help individuals and families heal and recover with dignity and professionalism.
             </p>
             <div className="flex space-x-4">
               <Mail className="h-5 w-5 text-teal-400" />
-              <span className="text-gray-300">salmocenter@gmail.com</span>
+              <span className="text-gray-300">salmocentre@gmail.com</span>
             </div>
           </div>
 
@@ -29,6 +29,9 @@ export const Footer = () => {
               <li><Link to="/about" className="text-gray-300 hover:text-teal-400 transition-colors">About Us</Link></li>
               <li><Link to="/testimonials" className="text-gray-300 hover:text-teal-400 transition-colors">Success Stories</Link></li>
               <li><Link to="/contact" className="text-gray-300 hover:text-teal-400 transition-colors">Contact</Link></li>
+              <li><Link to="/admission" className="text-gray-300 hover:text-teal-400 transition-colors">Admission & Fees</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-teal-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-and-conditions" className="text-gray-300 hover:text-teal-400 transition-colors">Terms & Conditions</Link></li>
             </ul>
           </div>
 
@@ -36,7 +39,7 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-300">
-              <p>Salmo Rehabilitation Center, Mosocho</p>
+              <p>Salmo Rehabilitation Centre, Mosocho</p>
               <p>Kisii, Kenya</p>
               <p className="flex items-center">
                 <Calendar className="h-4 w-4 mr-2 text-teal-400" />
@@ -48,7 +51,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Salmo Rehabilitation Center. All rights reserved.</p>
+          <p>&copy; 2025 Salmo Rehabilitation Centre. All rights reserved.</p>
           <p className="mt-2 text-sm">
             If you are experiencing a medical emergency, please call +254 714 683 334 immediately.
           </p>

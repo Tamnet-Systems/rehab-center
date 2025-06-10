@@ -42,8 +42,8 @@ const About = () => {
           <p className="text-lg text-brand-darkblue/80 mb-8">
             {/* ...about text... */}
           </p>
-          <Button className="bg-brand-brightred hover:bg-brand-darkblue text-white px-8 py-4 text-lg transition-all hover:scale-105">
-            Book a Session
+          <Button asChild className="bg-teal-600 hover:bg-teal-700">
+            <Link to="/bookings">Book a Session</Link>
           </Button>
         </div>
       </section>
@@ -57,7 +57,7 @@ const About = () => {
                 Our Vision
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                To be a supper center for treatment and counselling of drug and alcohol addicts.
+                To be a supper centre for treatment and counselling of drug and alcohol addicts.
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 mt-10">
                 Our Mission
@@ -75,15 +75,15 @@ const About = () => {
                 <h3 className="text-2xl font-bold text-gray-900">Recovery Statistics</h3>
               </div>
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-teal-50 rounded-lg">
+                <div className="flex items-centre justify-between p-4 bg-teal-50 rounded-lg">
                   <span className="text-gray-700 font-medium">Treatment Completion Rate</span>
                   <span className="text-2xl font-bold text-teal-600">87%</span>
                 </div>
-                <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+                <div className="flex items-centre justify-between p-4 bg-blue-50 rounded-lg">
                   <span className="text-gray-700 font-medium">6-Month Sobriety Rate</span>
                   <span className="text-2xl font-bold text-blue-600">73%</span>
                 </div>
-                <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+                <div className="flex items-centre justify-between p-4 bg-green-50 rounded-lg">
                   <span className="text-gray-700 font-medium">Client Satisfaction</span>
                   <span className="text-2xl font-bold text-green-600">94%</span>
                 </div>
@@ -96,7 +96,7 @@ const About = () => {
       {/* Accreditations */}
       <section className="py-16 bg-teal-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-centre mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Accreditations & Certifications
             </h2>
@@ -107,7 +107,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {accreditations.map((accreditation, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-white bg-opacity-10 p-4 rounded-lg">
+              <div key={index} className="flex items-centre space-x-3 bg-white bg-opacity-10 p-4 rounded-lg">
                 <Check className="h-6 w-6 text-white flex-shrink-0" />
                 <span className="text-white font-medium">{accreditation}</span>
               </div>
@@ -118,7 +118,7 @@ const About = () => {
 
       {/* CTA Section */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-centre">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Ready to Begin Your Journey?
           </h2>
@@ -126,7 +126,7 @@ const About = () => {
             Our compassionate team is here to answer your questions and help you take 
             the first step toward recovery.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-centre">
             <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700 text-lg px-8 py-3">
               <Link to="/contact">Contact Us Today</Link>
             </Button>

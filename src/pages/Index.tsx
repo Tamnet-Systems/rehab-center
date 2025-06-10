@@ -67,14 +67,13 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-skyblue/30 to-transparent" style={{ zIndex: 1 }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ zIndex: 2 }}>
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-brand-darkblue">Your Journey</span>
-              <br />
-              <span className="text-brand-brightred">to Recovery Begins Here</span>
+          <div className="text-centre">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-center">
+              <span className="block mx-auto text-brand-darkblue transition-colors duration-200 hover:text-brand-brightred cursor-pointer">Your Journey</span>
+              <span className="block text-brand-brightred">to Recovery Begins Here</span>
             </h1>
             <p className="text-xl md:text-2xl text-brand-darkblue/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-              At Salmo center, we believe every person deserves compassionate care, hope, and a chance to heal. 
+              At Salmo centre, we believe every person deserves compassionate care, hope, and a chance to heal. 
               Our evidence-based treatments create a sanctuary where transformation becomes possible.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -120,11 +119,11 @@ const Index = () => {
       {/* Services Section */}
       <section className="py-20 bg-gradient-to-br from-brand-skyblue/10 to-brand-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-centre mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               <span className="text-brand-darkblue">Our Services</span>
               <br />
-              <span className="text-brand-brightred">at Salmo Rehabilitation Center</span>
+              <span className="text-brand-brightred">at Salmo Rehabilitation Centre</span>
             </h2>
             <p className="text-xl text-brand-darkblue/80 max-w-3xl mx-auto">
               We offer a wide range of specialized services to support your journey to wellness and recovery. Our team is dedicated to providing compassionate, evidence-based care for individuals, couples, and families.
@@ -134,12 +133,12 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 border-brand-skyblue/30">
-                <CardHeader className="text-center pb-4">
+                <CardHeader className="text-centre pb-4">
                   <service.icon className="h-16 w-16 text-brand-darkblue mx-auto mb-4" />
                   <CardTitle className="text-2xl text-brand-darkblue">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-brand-darkblue/80 text-center text-lg leading-relaxed">
+                  <CardDescription className="text-brand-darkblue/80 text-centre text-lg leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardContent>
@@ -147,7 +146,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-centre mt-12">
             <Button 
               asChild 
               size="lg" 
@@ -166,7 +165,7 @@ const Index = () => {
       {/* Success Stories Section */}
       <section className="py-20 bg-brand-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-centre mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               <span className="text-brand-darkblue">Stories of Hope</span>
               <br />
@@ -217,7 +216,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className="text-centre">
             <Button 
               asChild 
               size="lg"
@@ -234,7 +233,7 @@ const Index = () => {
 
       {/* Contact CTA Section */}
       <section className="py-20 bg-gradient-to-r from-brand-darkblue to-brand-skyblue">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-centre">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Your Recovery Journey Starts Today
           </h2>
@@ -243,22 +242,22 @@ const Index = () => {
             Our compassionate team is here to guide you every step of the way.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-            <div className="flex items-center text-white">
+          <div className="flex flex-col sm:flex-row gap-6 justify-centre items-centre mb-8">
+            <div className="flex items-centre text-white">
               <Phone className="h-6 w-6 mr-3" />
               <span className="text-lg font-semibold">+254 714 638 334</span>
             </div>
-            <div className="flex items-center text-white">
+            <div className="flex items-centre text-white">
               <Calendar className="h-6 w-6 mr-3" />
               <span className="text-lg">24/7 Crisis Support</span>
             </div>
-            <div className="flex items-center text-white">
+            <div className="flex items-centre text-white">
               <MapPin className="h-6 w-6 mr-3" />
               <span className="text-lg">mosocho Kisii</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-centre">
             <Button 
               asChild 
               size="lg" 

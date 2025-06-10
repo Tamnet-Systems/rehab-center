@@ -85,7 +85,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-centre py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1">
@@ -124,7 +124,7 @@ const Contact = () => {
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
                     <p className="text-gray-600">domibosi5@gmail.com</p>
-                    <p className="text-gray-600">salmocenter2022@gmail.com</p>
+                    <p className="text-gray-600">salmocentre2022@gmail.com</p>
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Address</p>
@@ -288,7 +288,7 @@ const Contact = () => {
             <CardContent>
               <div className="bg-gray-100 h-64 rounded-lg flex items-center justify-center p-0 overflow-hidden">
                 <iframe
-                  title="salmo center  Mosocho Kisii Location"
+                  title="salmo centre  Mosocho Kisii Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15956.013123456789!2d34.683333!3d-0.683333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1829b5e2e2e2e2e3%3A0x7e7e7e7e7e7e7e7e!2sMosocho%2C%20Kisii%20County!5e0!3m2!1sen!2ske!4v1680000000000!5m2!1sen!2ske"
                   width="100%"
                   height="100%"

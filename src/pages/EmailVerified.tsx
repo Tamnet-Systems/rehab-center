@@ -17,45 +17,44 @@ useEffect(() => {
   let checkCount = 0;
   const maxChecks = 10; // Check up to 10 times (about 10 seconds)
   const delay = 1000; // 1 second between checks
-
+  let timer: ReturnType<typeof setInterval>;
   const intervalId = setInterval(async () => {
     checkCount++;
-
     const { data: { user }, error } = await supabase.auth.getUser();
-
     if (error || !user) {
       console.log("No user session yet. Retrying...");
+      if (checkCount >= maxChecks) clearInterval(intervalId);
       return;
     }
-
     console.log("User found:", user);
-
     if (user.email_confirmed_at) {
       console.log("Email is confirmed");
-
       const { data: profile, error: profileError } = await supabase
         .from("profiles")
         .select("role")
         .eq("id", user.id)
         .single();
-
       if (profileError) {
         console.error("Profile fetch error:", profileError.message);
         clearInterval(intervalId);
         return;
       }
-
       if (profile?.role === "admin") {
-        confetti({
-          particleCount: 150,
-          spread: 100,
-          origin: { y: 0.6 },
-        });
-
+        // Blast confetti multiple times for a more festive effect
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            confetti({
+              particleCount: 200,
+              spread: 120,
+              origin: { y: 0.6 },
+              startVelocity: 45,
+              scalar: 1.2,
+            });
+          }, i * 300);
+        }
         setRedirecting(true);
         clearInterval(intervalId);
-
-        const timer = setInterval(() => {
+        timer = setInterval(() => {
           setCountdown((prev) => {
             if (prev <= 1) {
               clearInterval(timer);
@@ -71,15 +70,13 @@ useEffect(() => {
       }
     } else {
       console.log("Email not yet confirmed. Retrying...");
-    }
-
-    if (checkCount >= maxChecks) {
-      console.warn("Stopped checking after 10 attempts.");
-      clearInterval(intervalId);
+      if (checkCount >= maxChecks) clearInterval(intervalId);
     }
   }, delay);
-
-  return () => clearInterval(intervalId);
+  return () => {
+    clearInterval(intervalId);
+    if (timer) clearInterval(timer);
+  };
 }, [navigate]);
 
   return (

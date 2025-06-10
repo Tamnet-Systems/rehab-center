@@ -14,6 +14,9 @@ import Testimonials from "./pages/Testimonials";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import EmailVerified from "@/pages/EmailVerified"; // ✅ Ensure correct import path
+import Admission from "./pages/Admission";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +38,9 @@ const App = () => (
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/EmailVerified" element={<EmailVerified />} /> {/* ✅ Add this */}
+              <Route path="/admission" element={<Admission />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

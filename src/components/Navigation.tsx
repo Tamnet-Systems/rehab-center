@@ -13,6 +13,7 @@ export const Navigation = () => {
     { name: "About", href: "/about" },
     { name: "Testimonials", href: "/testimonials" },
     { name: "Contact", href: "/contact" },
+    { name: "Admission & Fees", href: "/admission" }, // New link added here
   ];
 
   const isActive = (path: string) => location.pathname === path;

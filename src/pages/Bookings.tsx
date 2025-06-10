@@ -325,7 +325,7 @@ const Bookings = () => {
                   />
                   <div className="text-sm">
                     <Label htmlFor="consent" className="font-medium">
-                      I consent to treatment and acknowledge the following: *
+                      I have read and agree to the <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="underline text-teal-700 hover:text-teal-900">Terms & Conditions</a> and <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline text-teal-700 hover:text-teal-900">Privacy Policy</a>. *
                     </Label>
                     <ul className="mt-2 space-y-1 text-gray-600">
                       <li>• I understand this information will be used for assessment and treatment planning</li>
